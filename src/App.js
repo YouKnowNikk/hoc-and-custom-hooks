@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Counter from './Components/Custom-Hooks/Counter';
+import './App.css'
+import withCounter from './Components/HOC/withCounter';
+import CounterHoc from './Components/HOC/Counter';
 
+// Wrap Counter component with the higher-order component and Now this withCounter component return enhanced component.
+const CounterWithCounterHOC = withCounter(CounterHoc);
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      //Counter component have initialValue 0 
+       <Counter initialValue={0} />
+       <CounterWithCounterHOC message="Hello, World!" />;
     </div>
+   
   );
 }
 
